@@ -1,4 +1,4 @@
-# Agent Desktop Controller UI
+# agentdesktop Controller UI
 
 React and Vite administration interface for controller fleet status, device
 inventory, managed configuration, and runtime settings.

@@ -1,6 +1,6 @@
 # Desktop UI architecture
 
-Agent Desktop is a Tauri shell around a React status and setup interface. It is
+agentdesktop is a Tauri shell around a React status and setup interface. It is
 a separate per-user process from the privileged device daemon.
 
 ## Native host

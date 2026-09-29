@@ -2,7 +2,7 @@
   "name": "@agentdesktop/desktop-web",
   "version": "0.1.0",
   "private": true,
-  "description": "Agent Desktop Tauri tray application",
+  "description": "agentdesktop Tauri tray application",
   "type": "module",
   "scripts": {
     "generate:icons": "node scripts/generate-icons.mjs",

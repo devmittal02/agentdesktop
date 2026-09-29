@@ -8,7 +8,7 @@ use agentdesktop_core::{DEFAULT_SOCKET_PATH, VERSION};
 use clap::{Parser, Subcommand};
 
 #[derive(Parser)]
-#[command(about = "Agent Desktop daemon and command-line tools", version = VERSION)]
+#[command(about = "agentdesktop daemon and command-line tools", version = VERSION)]
 struct Args {
     /// Local daemon endpoint (Unix socket or Windows named pipe).
     #[arg(long, global = true, default_value = DEFAULT_SOCKET_PATH)]

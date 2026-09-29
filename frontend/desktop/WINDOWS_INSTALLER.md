@@ -1,9 +1,9 @@
 # Windows installer
 
-Agent Desktop is distributed on Windows as a per-machine MSI. The package
+agentdesktop is distributed on Windows as a per-machine MSI. The package
 installs:
 
-- The Agent Desktop tray application under `Program Files`.
+- The agentdesktop tray application under `Program Files`.
 - The headless `AgentDesktop` Windows service.
 - A default machine configuration under `%ProgramData%\AgentDesktop`.
 - A startup entry that launches the tray application for interactive users.

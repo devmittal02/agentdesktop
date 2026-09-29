@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
   <key>LSUIElement</key>
-  <!-- Agent Desktop runs primarily from the menu bar. -->
+  <!-- agentdesktop runs primarily from the menu bar. -->
   <true/>
 </dict>
 </plist>

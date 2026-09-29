@@ -31,7 +31,7 @@ export function EnrollmentView({
         >
           {failed ? <AlertCircle size={28} /> : <ShieldCheck size={28} />}
         </div>
-        <p className="eyebrow">Agent Desktop</p>
+        <p className="eyebrow">agentdesktop</p>
         <h2>
           {waiting
             ? "Enrollment is in progress"

@@ -33,7 +33,7 @@ export function ToolsView({ discovery, unavailable }: ToolsViewProps) {
         <div>
           <h2>Discovered tools</h2>
           <p>
-            Developer tools and capabilities found locally by the Agent Desktop
+            Developer tools and capabilities found locally by the agentdesktop
             daemon.
           </p>
         </div>
@@ -96,7 +96,7 @@ export function ToolsView({ discovery, unavailable }: ToolsViewProps) {
             <div>
               <strong>No supported tools found</strong>
               <span>
-                Agent Desktop can inventory VS Code, Claude Code, Claude
+                agentdesktop can inventory VS Code, Claude Code, Claude
                 Desktop, Codex, OpenCode, and Grok Build.
               </span>
             </div>
@@ -120,7 +120,7 @@ export function ToolsView({ discovery, unavailable }: ToolsViewProps) {
               <Cpu size={20} />
               <div>
                 <strong>No local models found</strong>
-                <span>Start Ollama before restarting Agent Desktop.</span>
+                <span>Start Ollama before restarting agentdesktop.</span>
               </div>
             </div>
           )}

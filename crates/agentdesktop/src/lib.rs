@@ -1,1 +1,1 @@
-//! Native support for the unified Agent Desktop application.
+//! Native support for the unified agentdesktop application.

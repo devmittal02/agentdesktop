@@ -11,7 +11,7 @@ export function StatusLoading({ view }: { view: View }) {
         <p>
           {view === "tools"
             ? "Reading the local tool inventory…"
-            : "Connecting to the Agent Desktop daemon…"}
+            : "Connecting to the agentdesktop daemon…"}
         </p>
       </div>
     </section>

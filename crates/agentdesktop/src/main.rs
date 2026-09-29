@@ -46,7 +46,7 @@ const TRAY_OFFLINE_ICON: &[u8] =
     include_bytes!("../../../frontend/desktop/assets/tray-icon-offline.png");
 
 #[derive(Parser)]
-#[command(about = "Agent Desktop UI, daemon, and command-line tools")]
+#[command(about = "agentdesktop UI, daemon, and command-line tools")]
 struct Args {
     /// Override the local endpoint exposed by the daemon (Unix socket or Windows named pipe).
     #[arg(long, global = true)]
@@ -650,7 +650,7 @@ fn run_desktop() -> anyhow::Result<()> {
             #[cfg(target_os = "macos")]
             tauri::async_runtime::spawn(async {
                 if let Err(error) = ensure_desktop_daemon().await {
-                    eprintln!("could not start Agent Desktop daemon: {error:#}");
+                    eprintln!("could not start agentdesktop daemon: {error:#}");
                 }
             });
 
@@ -661,7 +661,7 @@ fn run_desktop() -> anyhow::Result<()> {
             let quit = MenuItem::with_id(app, QUIT_MENU_ID, "Quit", true, None::<&str>)?;
             let menu = Menu::with_items(app, &[&open, &separator, &status, &quit])?;
             let tray = TrayIconBuilder::with_id("main")
-                .tooltip("Agent Desktop")
+                .tooltip("agentdesktop")
                 .icon(tray_icon("offline")?)
                 .menu(&menu)
                 .show_menu_on_left_click(true)
@@ -685,9 +685,9 @@ fn run_desktop() -> anyhow::Result<()> {
                                 .set_icon_with_as_template(Some(icon), cfg!(target_os = "macos"));
                         }
                         let _ = tray.set_tooltip(Some(match snapshot.state {
-                            "ready" => "Agent Desktop — ready",
-                            "attention" => "Agent Desktop — attention required",
-                            _ => "Agent Desktop — daemon offline",
+                            "ready" => "agentdesktop — ready",
+                            "attention" => "agentdesktop — attention required",
+                            _ => "agentdesktop — daemon offline",
                         }));
                         previous_state = snapshot.state;
                     }

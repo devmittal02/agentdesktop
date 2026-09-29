@@ -20,7 +20,7 @@ mod windows {
     const SERVICE_NAME: &str = "AgentDesktop";
 
     #[derive(Parser)]
-    #[command(about = "Agent Desktop Windows service")]
+    #[command(about = "agentdesktop Windows service")]
     struct Args {
         #[arg(long, default_value = DEFAULT_SOCKET_PATH)]
         socket: PathBuf,
@@ -38,7 +38,7 @@ mod windows {
 
     fn service_main(_arguments: Vec<OsString>) {
         if let Err(error) = run_service() {
-            eprintln!("Agent Desktop service failed: {error:#}");
+            eprintln!("agentdesktop service failed: {error:#}");
         }
     }
 

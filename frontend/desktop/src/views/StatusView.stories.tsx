@@ -249,7 +249,7 @@ export const DaemonInformationUnavailable: Story = {
       ),
     ).toBeVisible();
     await expect(
-      canvas.getByRole("heading", { name: "Agent Desktop needs attention" }),
+      canvas.getByRole("heading", { name: "agentdesktop needs attention" }),
     ).toBeVisible();
   },
 };

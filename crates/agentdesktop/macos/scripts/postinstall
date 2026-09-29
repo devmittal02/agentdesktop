@@ -35,20 +35,20 @@ relaunch_application_for_user() {
   uid="$1"
   case "${uid}" in
     "" | *[!0-9]*)
-      echo "warning: invalid Agent Desktop relaunch user" >&2
+      echo "warning: invalid agentdesktop relaunch user" >&2
       return
       ;;
   esac
 
   username=$(/usr/bin/id -nu "${uid}" 2>/dev/null || true)
   if [ -z "${username}" ] || ! /bin/launchctl print "gui/${uid}" >/dev/null 2>&1; then
-    echo "warning: cannot relaunch Agent Desktop because user ${uid} is no longer logged in" >&2
+    echo "warning: cannot relaunch agentdesktop because user ${uid} is no longer logged in" >&2
     return
   fi
 
   if ! /bin/launchctl asuser "${uid}" /usr/bin/sudo -u "${username}" \
     /usr/bin/open -g "${APPLICATION}"; then
-    echo "warning: could not relaunch Agent Desktop for user ${uid}" >&2
+    echo "warning: could not relaunch agentdesktop for user ${uid}" >&2
   fi
 }
 
@@ -66,7 +66,7 @@ relaunch_applications() {
 
 if ! /usr/sbin/dseditgroup -q -o read -n . "${GROUP_NAME}" >/dev/null 2>&1; then
   /usr/sbin/dseditgroup -q -o create -n . \
-    -r "Agent Desktop local API users" "${GROUP_NAME}"
+    -r "agentdesktop local API users" "${GROUP_NAME}"
 fi
 
 /usr/bin/dscl . -list /Users UniqueID | /usr/bin/awk '$2 >= 500 && $2 < 65534 { print $1 }' |

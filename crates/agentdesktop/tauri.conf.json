@@ -19,7 +19,7 @@
     "windows": [
       {
         "label": "main",
-        "title": "Agent Desktop",
+        "title": "agentdesktop",
         "width": 940,
         "height": 680,
         "minWidth": 720,
@@ -37,7 +37,7 @@
     "active": true,
     "targets": "all",
     "category": "Utility",
-    "shortDescription": "Local Agent Desktop gateway controls",
+    "shortDescription": "Local agentdesktop gateway controls",
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",

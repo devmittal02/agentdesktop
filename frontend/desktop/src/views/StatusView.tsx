@@ -127,8 +127,8 @@ export function StatusView({
             {statusUnavailable
               ? "Some status is unavailable"
               : ready
-                ? "Agent Desktop is running"
-                : "Agent Desktop needs attention"}
+                ? "agentdesktop is running"
+                : "agentdesktop needs attention"}
           </h2>
           <p>
             {statusUnavailable

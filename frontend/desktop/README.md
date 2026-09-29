@@ -1,9 +1,9 @@
-# Agent Desktop UI
+# agentdesktop UI
 
 Tauri 2 desktop application for the macOS menu bar, Windows system tray, and
 Linux desktop. Closing its window hides it; the tray menu reopens or quits it.
 
-The application is a client of the installed Agent Desktop daemon. It shows
+The application is a client of the installed agentdesktop daemon. It shows
 daemon, enrollment, managed configuration, gateway, and discovered-tool state.
 The daemon remains responsible for all privileged and policy-sensitive work.
 On macOS, launching an app-only installation starts a per-user daemon through

@@ -434,7 +434,7 @@ jobs:
             deadline=$((SECONDS + 30))
             until sudo "/Applications/agentdesktop.app/Contents/MacOS/agentdesktop" status; do
               if (( SECONDS >= deadline )); then
-                echo "Installed CLI could not reach the Agent Desktop daemon" >&2
+                echo "Installed CLI could not reach the agentdesktop daemon" >&2
                 return 1
               fi
               sleep 1
@@ -462,7 +462,7 @@ jobs:
           second_pid="$(daemon_pid)"
           test -n "${second_pid}"
           if [ "${first_pid}" = "${second_pid}" ]; then
-            echo "Agent Desktop daemon was not restarted during package replacement" >&2
+            echo "agentdesktop daemon was not restarted during package replacement" >&2
             exit 1
           fi
           test "${config_hash}" = "$(sudo shasum -a 256 /etc/agentdesktop/config.yaml | awk '{ print $1 }')"
@@ -601,7 +601,7 @@ jobs:
               }
               Start-Sleep -Seconds 1
             } while ((Get-Date) -lt $deadline)
-            throw "Installed CLI could not reach the Agent Desktop service"
+            throw "Installed CLI could not reach the agentdesktop service"
           }
 
           $installer = (Resolve-Path "release/$env:OUTPUT_NAME").Path
@@ -618,7 +618,7 @@ jobs:
           $tray = Start-Process "$env:ProgramFiles\Agent Desktop\agentdesktop.exe" -PassThru
           Start-Sleep -Seconds 3
           if ($tray.HasExited) {
-            throw "Agent Desktop tray process exited before replacement"
+            throw "agentdesktop tray process exited before replacement"
           }
 
           $replace = Start-Process msiexec.exe -ArgumentList @(
@@ -632,21 +632,21 @@ jobs:
           Assert-MsiSuccess $replace "replacement"
           $tray.Refresh()
           if (-not $tray.HasExited) {
-            throw "Agent Desktop tray process remains after replacement"
+            throw "agentdesktop tray process remains after replacement"
           }
 
           Wait-ForAgentDesktopService
           if ((Get-FileHash $configPath -Algorithm SHA256).Hash -ne $configHash) {
-            throw "Agent Desktop configuration changed during replacement"
+            throw "agentdesktop configuration changed during replacement"
           }
           if (-not (Test-Path $stateMarker)) {
-            throw "Agent Desktop state was removed during replacement"
+            throw "agentdesktop state was removed during replacement"
           }
 
           $uninstall = Start-Process msiexec.exe -ArgumentList @("/x", "`"$installer`"", "/qn", "/norestart") -Wait -PassThru
           Assert-MsiSuccess $uninstall "uninstall"
           if (Get-Service AgentDesktop -ErrorAction SilentlyContinue) {
-            throw "Agent Desktop service remains after uninstall"
+            throw "agentdesktop service remains after uninstall"
           }
 
       - name: Upload unsigned MSI

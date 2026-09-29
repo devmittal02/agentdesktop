@@ -14,7 +14,7 @@
     <util:CloseApplication
       Id="CloseAgentDesktop"
       Target="agentdesktop.exe"
-      Description="Agent Desktop must close before it can be updated."
+      Description="agentdesktop must close before it can be updated."
       CloseMessage="yes"
       ElevatedCloseMessage="yes"
       Timeout="15"
